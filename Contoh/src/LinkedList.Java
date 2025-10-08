@@ -77,7 +77,5 @@ public class LinkedList{
         nodeB.prev = tempPrev;
         tempPrev.next = nodeB;
         tempNext.prev = nodeB;
-
-
     }
 }
