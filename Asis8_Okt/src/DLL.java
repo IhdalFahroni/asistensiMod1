@@ -77,4 +77,76 @@ public class DLL {
             System.out.println("Data tidak ditemukan");
         }
     }
+
+    public void swapNode(int dataA, int dataB) {
+        if(head == null) {
+            System.out.println("Tidak ada node apapun di list ini");
+            return;
+        }else {
+            Node current = head;
+            Node a = null, b = null;
+            while(current != null) {
+                if(current.data == dataA) a = current;
+                if(current.data == dataB) b = current;
+                current = current.next;
+            }
+            if(a == null || b == null) {
+                System.out.println("Salah satu atau kedua data tidak ditemukan");
+                return;
+            }
+            if(a.next == b) {
+                b.prev = a.prev;
+                if(a.prev != null) {
+                    a.prev.next = b;
+                }else {
+                    head = b;
+                }
+                a.prev = b;
+
+                a.next = b.next;
+                if(b.next != null) {
+                    b.next.prev = a;
+                }else {
+                    tail = b;
+                }
+                b.next = a;
+            } else if(b.next == a) {
+                a.prev = b.prev;
+                if(b.prev != null) {
+                    b.prev.next = a;
+                }else {
+                    head = a;
+                }
+                b.prev = a;
+
+                b.next = a.next;
+                if(a.next != null) {
+                    a.next.prev = b;
+                }else {
+                    tail = b;
+                }
+                a.next = b;
+            } else {
+                Node aNext = a.next;
+                Node aPrev = a.prev;
+
+                a.next = b.next;
+                a.prev = b.prev;
+
+                if(b != tail) b.next.prev = a;
+                if(b != head) b.prev.next = a;
+
+                b.next = aNext;
+                b.prev = aPrev;
+                
+                if(a != tail) aNext.prev = b;
+                if(a != head) aPrev.next = b;
+
+                if(a == tail) tail=b;
+                else if(b == tail) tail=a;
+                if(a == head) head=b;
+                else if(b == head) head=a;
+            }
+        }
+    }
 }

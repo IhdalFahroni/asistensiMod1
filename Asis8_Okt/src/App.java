@@ -8,7 +8,9 @@ public class App {
         list.addLast(5);
         list.insertAfter(3, 2);
         list.display();
-        list.deleteByData(3);
+        // list.deleteByData(3);
+        // list.display();
+        list.swapNode(3, 5);
         list.display();
     }
 }
