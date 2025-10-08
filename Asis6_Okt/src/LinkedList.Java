@@ -39,7 +39,7 @@ public class LinkedList{
         }
     }
 
-    public class swapNode(String nama1, String nama2){
+    public class swapValue(String nama1, String nama2){
         Node nodeA, nodeB;
         while (nodeA.nama != nama1 && nodeA !=null){
             nodeA = nodeA.next;
@@ -47,35 +47,12 @@ public class LinkedList{
         while (nodeB.nama != nama2 && nodeB !=null){
             nodeB = nodeB.next;
         }
-
-        if(nodeA.next = nodeB || nodeB.next = nodeA){
-            Node tempNext = nodeB.next;
-            nodeB.prev = nodeA.prev;
-            nodeB.next = nodeA;
-            nodeA.next = tempNext;
-            nodeA.prev.next = nodeB;
-            nodeA.prev = nodeB;
-            tempNext.prev = nodeA;
-        }
-
-        //swap by value
+        
         String tempNama = nodeA.nama;
         int tempUmur = nodeA.umur;
         nodeA.nama = nodeB.nama;
         nodeA.umur = nodeB.umur;
         nodeB.nama = tempNama;
         nodeB.umur = tempUmur;
-
-        //swap node
-        Node tempNext = nodeA.next;
-        Node tempPrev = nodeA.prev;
-        nodeA.next = nodeB.next;
-        nodeA.prev = nodeB.prev;
-        nodeB.next.prev = nodeA;
-        nodeB.prev.next = nodeA;
-        nodeB.next = tempNext;
-        nodeB.prev = tempPrev;
-        tempPrev.next = nodeB;
-        tempNext.prev = nodeB;
     }
 }
